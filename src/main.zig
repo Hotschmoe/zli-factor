@@ -241,7 +241,7 @@ fn primeFactorize(allocator: std.mem.Allocator, num: u32) !void {
             count += 1;
         }
 
-        if (i_outer > 0) std.debug.print(" × ", .{});
+        if (i_outer > 0) std.debug.print(" * ", .{});
 
         if (count == 1) {
             std.debug.print("{d}", .{prime});
@@ -322,7 +322,7 @@ fn printHelp() !void {
         \\
         \\  -p   List all prime numbers from 1 to the given number
         \\
-        \\  -pf  Show prime factorization (e.g., 100 = 2^2 × 5^2)
+        \\  -pf  Show prime factorization (e.g., 100 = 2^2 * 5^2)
         \\
         \\  -h, --help   Show this help message
         \\
@@ -340,7 +340,7 @@ fn printHelp() !void {
         \\  zli-factor -f 1-10      # Factor all numbers 1 through 10
         \\  zli-factor -f 28,496    # Multiple perfect numbers
         \\  zli-factor -p 700       # List 125 primes up to 700
-        \\  zli-factor -pf 100      # Shows: 100 = 2^2 × 5^2
+        \\  zli-factor -pf 100      # Shows: 100 = 2^2 * 5^2
         \\  zli-factor -pf 1-20     # Prime factorization for range
         \\
         \\FUN FACTS:
