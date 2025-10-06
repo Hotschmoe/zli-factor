@@ -25,7 +25,7 @@ cd zli-factor
 zig build
 ```
 
-The executable will be located at `zig-out/bin/zig_factoring` (or `zig_factoring.exe` on Windows).
+The executable will be located at `zig-out/bin/zli-factor` (or `zli-factor.exe` on Windows).
 
 ### Install to System
 ```bash
