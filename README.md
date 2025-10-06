@@ -1,8 +1,16 @@
-# zli-factor 🔢
+# zli-factor
+
+```
+ _____ _     ___       _____           _             
+|__  /| |   |_ _|     |  ___|_ _  ___| |_ ___  _ __ 
+  / / | |    | |_____ | |_ / _` |/ __| __/ _ \| '__|
+ / /_ | |___ | |_____||  _| (_| | (__| || (_) | |   
+/____|_____|___|      |_|  \__,_|\___|\__\___/|_|   
+```
 
 A powerful and versatile command-line integer factorization and prime number analysis tool written in Zig.
 
-## Features ✨
+## Features
 
 - **Factor Finding**: Discover all factors of any number (excluding 1 and itself)
 - **Prime Detection**: Automatically identifies prime numbers
@@ -13,7 +21,7 @@ A powerful and versatile command-line integer factorization and prime number ana
 - **High Performance**: Written in Zig for maximum speed and efficiency
 - **Large Number Support**: Handles integers up to 9 digits (999,999,999)
 
-## Installation 🚀
+## Installation
 
 ### Prerequisites
 - [Zig](https://ziglang.org/) v0.15.1 or later
@@ -32,7 +40,7 @@ The executable will be located at `zig-out/bin/zli-factor` (or `zli-factor.exe` 
 zig build install --prefix ~/.local
 ```
 
-## Usage 📖
+## Usage
 
 ### Basic Commands
 
@@ -87,7 +95,7 @@ zli-factor -pf 10-20      # Prime factorization for 10 through 20
 zli-factor -f 10 20-25 100 200,300
 ```
 
-## Examples 💡
+## Examples
 
 ### Factor Finding
 ```bash
@@ -105,7 +113,7 @@ Factors of 100 (excluding 1 and 100):
 ### Prime Detection
 ```bash
 $ zli-factor -f 17
-✨ 17 is PRIME! ✨
+*** 17 is PRIME! ***
 A prime number is only divisible by 1 and itself - how special!
 ```
 
@@ -117,13 +125,13 @@ Factors of 28 (excluding 1 and 28):
   4
   7
   14
-💎 PERFECT NUMBER! Sum of all factors (including 1) = 28 💎
+<> PERFECT NUMBER! Sum of all factors (including 1) = 28 <>
 ```
 
 ### Prime Listing
 ```bash
 $ zli-factor -p 50
-✨ Found 15 prime number(s) between 1 and 50:
+>> Found 15 prime number(s) between 1 and 50:
 
      2       3       5       7      11      13      17      19      23      29  
     31      37      41      43      47  
@@ -146,14 +154,14 @@ $ zli-factor -f 6,28,496
 Factors of 6 (excluding 1 and 6):
   2
   3
-💎 PERFECT NUMBER! Sum of all factors (including 1) = 6 💎
+<> PERFECT NUMBER! Sum of all factors (including 1) = 6 <>
 
 Factors of 28 (excluding 1 and 28):
   2
   4
   7
   14
-💎 PERFECT NUMBER! Sum of all factors (including 1) = 28 💎
+<> PERFECT NUMBER! Sum of all factors (including 1) = 28 <>
 
 Factors of 496 (excluding 1 and 496):
   2
@@ -164,7 +172,7 @@ Factors of 496 (excluding 1 and 496):
   62
   124
   248
-💎 PERFECT NUMBER! Sum of all factors (including 1) = 496 💎
+<> PERFECT NUMBER! Sum of all factors (including 1) = 496 <>
 ```
 
 ### Range Processing
@@ -172,25 +180,25 @@ Factors of 496 (excluding 1 and 496):
 $ zli-factor -f 1-6
 Number 1 has no factors (excluding 1 and itself)
 
-✨ 2 is PRIME! ✨
+*** 2 is PRIME! ***
 A prime number is only divisible by 1 and itself - how special!
 
-✨ 3 is PRIME! ✨
+*** 3 is PRIME! ***
 A prime number is only divisible by 1 and itself - how special!
 
 Factors of 4 (excluding 1 and 4):
   2
 
-✨ 5 is PRIME! ✨
+*** 5 is PRIME! ***
 A prime number is only divisible by 1 and itself - how special!
 
 Factors of 6 (excluding 1 and 6):
   2
   3
-💎 PERFECT NUMBER! Sum of all factors (including 1) = 6 💎
+<> PERFECT NUMBER! Sum of all factors (including 1) = 6 <>
 ```
 
-## Performance & Limits ⚡
+## Performance & Limits
 
 ### Maximum Values
 - **Integer Limit**: Up to 9 digits (999,999,999)
@@ -219,18 +227,18 @@ The tool uses dynamic memory allocation and should handle most operations effici
 ### Memory Error Prevention
 
 **Will NOT cause memory errors:**
-- Single numbers, even very large: `zli-factor -f 999999999` ✅
-- Small ranges: `zli-factor -f 1-1000` ✅
-- Multiple discrete numbers: `zli-factor -f 100,200,300,...` ✅
-- Prime factorization of any valid number ✅
+- Single numbers, even very large: `zli-factor -f 999999999` [OK]
+- Small ranges: `zli-factor -f 1-1000` [OK]
+- Multiple discrete numbers: `zli-factor -f 100,200,300,...` [OK]
+- Prime factorization of any valid number [OK]
 
 **Use with caution (will warn you):**
-- Very large ranges: `zli-factor -f 1-500000` ⚠️
-- Large prime listings: `zli-factor -p 50000000` ⚠️
+- Very large ranges: `zli-factor -f 1-500000` [!]
+- Large prime listings: `zli-factor -p 50000000` [!]
 
 **Not recommended:**
-- Extreme ranges: `zli-factor -f 1-100000000` ❌ (will take very long)
-- Maximum prime listing: `zli-factor -p 999999999` ❌ (will exhaust memory)
+- Extreme ranges: `zli-factor -f 1-100000000` [X] (will take very long)
+- Maximum prime listing: `zli-factor -p 999999999` [X] (will exhaust memory)
 
 ### Performance Tips
 
@@ -239,7 +247,7 @@ The tool uses dynamic memory allocation and should handle most operations effici
 - Prime factorization is faster than factor finding for large numbers
 - Prime listing scales with the size of the limit (roughly O(n log log n))
 
-## Fun Number Facts 🎓
+## Fun Number Facts
 
 ### Perfect Numbers
 Perfect numbers are positive integers equal to the sum of their proper divisors (excluding the number itself):
@@ -257,7 +265,7 @@ Perfect numbers are positive integers equal to the sum of their proper divisors 
 Pairs of primes that differ by 2:
 - (3, 5), (5, 7), (11, 13), (17, 19), (29, 31), (41, 43)...
 
-## Technical Details 🔧
+## Technical Details
 
 ### Algorithm Complexity
 
@@ -271,7 +279,7 @@ Pairs of primes that differ by 2:
 - **Memory Management**: General Purpose Allocator with automatic cleanup
 - **Data Structures**: ArrayList for dynamic storage
 
-## Development 🛠️
+## Development
 
 ### Running Tests
 ```bash
@@ -288,7 +296,7 @@ zig build run -- -f 100
 zig build -Doptimize=ReleaseFast
 ```
 
-## Contributing 🤝
+## Contributing
 
 Contributions are welcome! Feel free to:
 - Report bugs
@@ -296,20 +304,20 @@ Contributions are welcome! Feel free to:
 - Submit pull requests
 - Improve documentation
 
-## License 📄
+## License
 
 This project is open source and available under the MIT License.
 
-## Acknowledgments 🙏
+## Acknowledgments
 
 - Built with the amazing [Zig](https://ziglang.org/) programming language
 - Inspired by classic number theory and computational mathematics
 
-## Author ✍️
+## Author
 
-Created with ❤️ by a Zig enthusiast
+Created with <3 by a Zig enthusiast
 
 ---
 
-**Happy Number Crunching!** 🎉
+**Happy Number Crunching!**
 

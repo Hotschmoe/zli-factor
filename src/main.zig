@@ -61,7 +61,7 @@ pub fn main() !void {
         }
 
         if (limit > 10000000) {
-            std.debug.print("⚠️  Warning: Finding primes up to {d} may take some time and memory...\n", .{limit});
+            std.debug.print("[!] Warning: Finding primes up to {d} may take some time and memory...\n", .{limit});
         }
 
         try listPrimes(allocator, limit);
@@ -119,7 +119,7 @@ fn parseNumberArg(allocator: std.mem.Allocator, arg: []const u8, numbers: *std.A
             }
 
             if (end - start > 100000) {
-                std.debug.print("⚠️  Warning: Processing {d} numbers may take some time...\n", .{end - start + 1});
+                std.debug.print("[!] Warning: Processing {d} numbers may take some time...\n", .{end - start + 1});
             }
 
             var i: u32 = start;
@@ -176,7 +176,7 @@ fn findFactors(allocator: std.mem.Allocator, num: u32) !void {
 
     // Check if prime
     if (factors.items.len == 0) {
-        std.debug.print("✨ {d} is PRIME! ✨\n", .{num});
+        std.debug.print("*** {d} is PRIME! ***\n", .{num});
         std.debug.print("A prime number is only divisible by 1 and itself - how special!\n", .{});
         return;
     }
@@ -196,7 +196,7 @@ fn findFactors(allocator: std.mem.Allocator, num: u32) !void {
     }
 
     if (is_perfect) {
-        std.debug.print("💎 PERFECT NUMBER! Sum of all factors (including 1) = {d} 💎\n", .{num});
+        std.debug.print("<> PERFECT NUMBER! Sum of all factors (including 1) = {d} <>\n", .{num});
     }
 }
 
@@ -290,7 +290,7 @@ fn listPrimes(allocator: std.mem.Allocator, limit: u32) !void {
         return;
     }
 
-    std.debug.print("✨ Found {d} prime number(s) between 1 and {d}:\n", .{ primes.items.len, limit });
+    std.debug.print(">> Found {d} prime number(s) between 1 and {d}:\n", .{ primes.items.len, limit });
     std.debug.print("\n", .{});
 
     var count: usize = 0;
@@ -318,11 +318,11 @@ fn printHelp() !void {
         \\
         \\DESCRIPTION:
         \\  A versatile number analysis tool supporting:
-        \\  • Factor finding with perfect number detection
-        \\  • Prime number listing and detection
-        \\  • Prime factorization
-        \\  • Multiple number inputs and ranges
-        \\  • Supports numbers up to 9 digits (999,999,999)
+        \\  - Factor finding with perfect number detection
+        \\  - Prime number listing and detection
+        \\  - Prime factorization
+        \\  - Multiple number inputs and ranges
+        \\  - Supports numbers up to 9 digits (999,999,999)
         \\
         \\FLAGS:
         \\  -f   Find all factors (excluding 1 and the number itself)
@@ -352,9 +352,9 @@ fn printHelp() !void {
         \\  zli-factor -pf 1-20     # Prime factorization for range
         \\
         \\FUN FACTS:
-        \\  • Perfect numbers: Sum of factors equals the number (6, 28, 496...)
-        \\  • Twin primes: Primes that differ by 2 (3&5, 11&13, 17&19...)
-        \\  • There are 25 primes up to 100, and 168 primes up to 1000!
+        \\  - Perfect numbers: Sum of factors equals the number (6, 28, 496...)
+        \\  - Twin primes: Primes that differ by 2 (3&5, 11&13, 17&19...)
+        \\  - There are 25 primes up to 100, and 168 primes up to 1000!
         \\
     , .{});
 }
