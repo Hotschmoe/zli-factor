@@ -55,9 +55,13 @@ pub fn main() !void {
             std.process.exit(1);
         };
 
-        if (limit > 999999) {
-            std.debug.print("Error: number too large (max: 999,999)\n", .{});
+        if (limit > 999999999) {
+            std.debug.print("Error: number too large (max: 999,999,999)\n", .{});
             std.process.exit(1);
+        }
+
+        if (limit > 10000000) {
+            std.debug.print("⚠️  Warning: Finding primes up to {d} may take some time and memory...\n", .{limit});
         }
 
         try listPrimes(allocator, limit);
@@ -109,9 +113,13 @@ fn parseNumberArg(allocator: std.mem.Allocator, arg: []const u8, numbers: *std.A
                 std.process.exit(1);
             }
 
-            if (end > 999999) {
-                std.debug.print("Error: number too large in range (max: 999,999)\n", .{});
+            if (end > 999999999) {
+                std.debug.print("Error: number too large in range (max: 999,999,999)\n", .{});
                 std.process.exit(1);
+            }
+
+            if (end - start > 100000) {
+                std.debug.print("⚠️  Warning: Processing {d} numbers may take some time...\n", .{end - start + 1});
             }
 
             var i: u32 = start;
@@ -133,8 +141,8 @@ fn parseNumberArg(allocator: std.mem.Allocator, arg: []const u8, numbers: *std.A
             std.process.exit(1);
         };
 
-        if (num > 999999) {
-            std.debug.print("Error: number {d} too large (max: 999,999)\n", .{num});
+        if (num > 999999999) {
+            std.debug.print("Error: number {d} too large (max: 999,999,999)\n", .{num});
             std.process.exit(1);
         }
 
@@ -314,7 +322,7 @@ fn printHelp() !void {
         \\  • Prime number listing and detection
         \\  • Prime factorization
         \\  • Multiple number inputs and ranges
-        \\  • Supports numbers up to 6 digits (999,999)
+        \\  • Supports numbers up to 9 digits (999,999,999)
         \\
         \\FLAGS:
         \\  -f   Find all factors (excluding 1 and the number itself)
